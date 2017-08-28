@@ -8,8 +8,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,6 +39,25 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Log.i("ScanActivity", "creating HashBiMap...");
+
+        BiMap<String, String> IdMap = HashBiMap.create();
+        IdMap.put("node_1","10.0.0.101");
+        IdMap.put("node_2","10.0.0.102");
+        IdMap.put("node_3","10.0.0.103");
+        IdMap.put("node_4","10.0.0.104");
+        IdMap.put("node_5","10.0.0.105");
+        IdMap.put("node_6","10.0.0.106");
+        IdMap.put("bb1","10.0.0.201");
+        IdMap.put("bb2","10.0.0.202");
+        IdMap.put("bb3","10.0.0.203");
+        IdMap.put("bb4","10.0.0.204");
+        IdMap.put("bb5","10.0.0.205");
+        IdMap.put("bb6","10.0.0.206");
+        Log.i("ScanActivity", "created HashBimap. TestKey is: " +IdMap.get("node_1") + " TestValue is: " +IdMap.inverse().get("10.0.0.101"));
+
+
     }
 
     @Override
